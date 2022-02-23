@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:vup_client/presentation/core/app_colors.dart';
 import 'package:vup_client/presentation/core/app_text_styles.dart';
 import 'package:vup_client/presentation/shared/widgets/app_button_widget.dart';
+import 'package:vup_client/presentation/views/auth/auth_view.dart';
 import 'package:vup_client/presentation/views/auth/widgets/input_text_form_field_widget.dart';
-import 'package:vup_client/presentation/views/sign_up/sign_up_view.dart';
+import 'package:vup_client/presentation/views/auth/widgets/text_button_widget.dart';
 
-import 'widgets/text_button_widget.dart';
-
-class AuthView extends StatelessWidget {
-  const AuthView({Key? key}) : super(key: key);
+class SignUpView extends StatelessWidget {
+  const SignUpView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +36,10 @@ class AuthView extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  Image.asset(
-                    'assets/images/png/logo.png',
-                    height: 50,
-                  ),
+                  Image.asset('assets/images/png/logo.png', height: 50),
+                  const Divider(color: Colors.transparent),
                   Text(
-                    'Login',
+                    'Cadastro',
                     style: AppTextStyles.largeTitleStyle,
                   ),
                 ],
@@ -53,14 +50,10 @@ class AuthView extends StatelessWidget {
                   const Divider(color: Colors.transparent),
                   const InputTextFormFieldWidget(labelText: 'Senha'),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TextButtonComponent(
                         text: 'Entrar com Google',
-                        onTapped: () {},
-                      ),
-                      TextButtonComponent(
-                        text: 'Esqueceu sua senha?',
                         onTapped: () {},
                       ),
                     ],
@@ -69,12 +62,15 @@ class AuthView extends StatelessWidget {
               ),
               Column(
                 children: [
-                  AppButton(label: 'Entrar', onTapped: () {}),
+                  AppButton(
+                    label: 'Cadastrar',
+                    onTapped: () {},
+                  ),
                   TextButtonComponent(
-                    text: 'Não tem conta? Cadastre-se!',
+                    text: 'Já tem conta? Faça o login!',
                     onTapped: () => Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
-                        builder: (context) => const SignUpView(),
+                        builder: (context) => const AuthView(),
                       ),
                     ),
                   ),
