@@ -9,6 +9,7 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, deviceType) {
       return const MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: "Vup Cliente App",
         home: AuthView(),
       );
