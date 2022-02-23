@@ -3,6 +3,7 @@ import 'package:vup_client/presentation/shared/widgets/bottom_menu/bottom_menu.d
 import 'package:vup_client/presentation/shared/widgets/custom_app_bar.dart';
 import 'package:vup_client/presentation/views/home/home_view.dart';
 import 'package:vup_client/presentation/views/main_pages/main_pages_view_model.dart';
+import 'package:vup_client/presentation/views/payments/payments_view.dart';
 
 class MainPagesView extends StatefulWidget {
   const MainPagesView({Key? key}) : super(key: key);
@@ -29,7 +30,7 @@ class _MainPagesViewState extends State<MainPagesView> {
         children: [
           const HomeView(),
           Container(color: Colors.orange),
-          Container(color: Colors.grey),
+          const PaymentsView(),
           Container(color: Colors.yellow),
         ],
       ),

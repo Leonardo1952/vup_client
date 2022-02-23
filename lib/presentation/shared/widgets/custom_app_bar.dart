@@ -54,10 +54,10 @@ class CustomAppBar extends PreferredSize {
                 ),
                 IconButton(
                   onPressed: () {},
-                  icon: SvgPicture.asset(
-                    AppImages.addIcon,
+                  icon: Icon(
+                    Icons.person,
                     color: AppColors.white,
-                    height: 5.h,
+                    size: 5.h,
                   ),
                 ),
               ],
