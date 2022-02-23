@@ -1,19 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:vup_client/presentation/core/app_colors.dart';
-import 'package:vup_client/presentation/core/app_text_styles.dart';
 
-class CustomAppBar extends PreferredSize {
-  final String label;
-  final VoidCallback onAddTapped;
+class CustomAppBarPayDebt extends PreferredSize {
   final BuildContext context;
-
-  CustomAppBar({
-    Key? key,
-    required this.label,
-    required this.onAddTapped,
-    required this.context,
-  }) : super(
+  CustomAppBarPayDebt({Key? key, required this.context})
+      : super(
           key: key,
           preferredSize: const Size.fromHeight(87),
           child: Container(
@@ -31,24 +23,22 @@ class CustomAppBar extends PreferredSize {
               left: 20,
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "VUP",
-                        style: AppTextStyles.largeTitleStyle,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      onPressed: () => Navigator.pop(context),
+                      icon: Icon(
+                        Icons.keyboard_arrow_left,
+                        color: AppColors.white,
+                        size: 5.h,
                       ),
-                      Text(
-                        label,
-                        style: AppTextStyles.regularLabelStyle,
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 IconButton(
                   onPressed: () {},
