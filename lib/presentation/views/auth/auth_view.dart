@@ -3,6 +3,7 @@ import 'package:vup_client/presentation/core/app_colors.dart';
 import 'package:vup_client/presentation/core/app_text_styles.dart';
 import 'package:vup_client/presentation/shared/widgets/app_button_widget.dart';
 import 'package:vup_client/presentation/views/auth/widgets/input_text_form_field_widget.dart';
+import 'package:vup_client/presentation/views/main_pages/main_pages_view.dart';
 import 'package:vup_client/presentation/views/sign_up/sign_up_view.dart';
 
 import 'widgets/text_button_widget.dart';
@@ -69,7 +70,17 @@ class AuthView extends StatelessWidget {
               ),
               Column(
                 children: [
-                  AppButton(label: 'Entrar', onTapped: () {}),
+                  AppButton(
+                    label: 'Entrar',
+                    onTapped: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MainPagesView(),
+                        ),
+                      );
+                    },
+                  ),
                   TextButtonComponent(
                     text: 'Não tem conta? Cadastre-se!',
                     onTapped: () => Navigator.of(context).pushReplacement(

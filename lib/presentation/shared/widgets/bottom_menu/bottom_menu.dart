@@ -42,14 +42,14 @@ class BottomMenu extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   BottomMenuButton(
-                    name: "Clientes",
-                    icon: AppImages.groupIcon,
+                    name: "Exercícios",
+                    icon: AppImages.haltersIcon,
                     onTapped: () => jumpToPage(0),
                     isActive: index == 0,
                   ),
                   BottomMenuButton(
-                    name: "Exercícios",
-                    icon: AppImages.haltersIcon,
+                    name: "Comunidade",
+                    icon: AppImages.groupIcon,
                     onTapped: () => jumpToPage(1),
                     isActive: index == 1,
                   ),
