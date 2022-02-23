@@ -12,26 +12,29 @@ class FormPaymentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 20.h,
-      width: 40.w,
-      decoration: BoxDecoration(
-        color: AppColors.purplew100,
-        borderRadius: BorderRadius.circular(20),
+    return GestureDetector(
+      child: Container(
+        height: 20.h,
+        width: 40.w,
+        decoration: BoxDecoration(
+          color: AppColors.purplew100,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          children: [
+            Icon(
+              Icons.home,
+              size: 25.w,
+              color: AppColors.white,
+            ),
+            Text(
+              name,
+              style: TextStyle(fontSize: 20.sp, color: AppColors.white),
+            )
+          ],
+        ),
       ),
-      child: Column(
-        children: [
-          Icon(
-            Icons.home,
-            size: 25.w,
-            color: AppColors.white,
-          ),
-          Text(
-            'PIX',
-            style: TextStyle(fontSize: 20.sp, color: AppColors.white),
-          )
-        ],
-      ),
+      onDoubleTap: () {},
     );
   }
 }

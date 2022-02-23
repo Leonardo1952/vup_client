@@ -18,38 +18,61 @@ class PayDebtView extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 7.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(height: 5.h),
-              Text(
-                'Mensalidade Academia Max',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.sp),
-              ),
-              const Text('Academia'),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Text("Vencimento: "),
-                  Text("20/03/2022",
-                      style: TextStyle(color: AppColors.purpleMain)),
-                ],
-              ),
-              Text(
-                'Pagar via',
-                style: AppTextStyles.largeTitleStyle.copyWith(
-                  color: AppColors.purpleMain,
+          child: SizedBox(
+            height: 80.h,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(height: 5.h),
+                Column(
+                  children: [
+                    Text(
+                      'Mensalidade Academia Max',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16.sp),
+                    ),
+                    const Text('Academia'),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Text("Vencimento: "),
+                        Text("20/03/2022",
+                            style: TextStyle(color: AppColors.purpleMain)),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Text("Valor: "),
+                        Text("R\$ 55:00",
+                            style: TextStyle(color: AppColors.purpleMain)),
+                      ],
+                    ),
+                  ],
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  FormPaymentCard(name: 'PIX'),
-                  FormPaymentCard(name: 'BOLETO'),
-                ],
-              ),
-            ],
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Pagar via',
+                        style: AppTextStyles.largeTitleStyle.copyWith(
+                          color: AppColors.purpleMain,
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: const [
+                          FormPaymentCard(name: 'PIX'),
+                          FormPaymentCard(name: 'BOLETO'),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
