@@ -4,6 +4,7 @@ import 'package:vup_client/presentation/shared/widgets/custom_app_bar.dart';
 import 'package:vup_client/presentation/views/home/home_view.dart';
 import 'package:vup_client/presentation/views/main_pages/main_pages_view_model.dart';
 import 'package:vup_client/presentation/views/payments/payments_view.dart';
+import 'package:vup_client/presentation/views/setting/setting_view.dart';
 
 class MainPagesView extends StatefulWidget {
   const MainPagesView({Key? key}) : super(key: key);
@@ -31,7 +32,7 @@ class _MainPagesViewState extends State<MainPagesView> {
           const HomeView(),
           Container(color: Colors.orange),
           const PaymentsView(),
-          Container(color: Colors.yellow),
+          const SettingView(),
         ],
       ),
     );
