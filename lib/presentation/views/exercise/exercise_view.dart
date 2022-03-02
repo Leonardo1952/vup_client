@@ -3,12 +3,21 @@ import 'package:sizer/sizer.dart';
 import 'package:vup_client/presentation/core/app_colors.dart';
 import 'package:vup_client/presentation/core/app_text_styles.dart';
 import 'package:vup_client/presentation/views/pay_debt/widgets/custom_appbar_pay_debt.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class ExerciseView extends StatelessWidget {
   const ExerciseView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    YoutubePlayerController _controller = YoutubePlayerController(
+      initialVideoId: 'iLnmTe5Q2Qw',
+      flags: const YoutubePlayerFlags(
+        autoPlay: true,
+        mute: true,
+      ),
+    );
+
     return Scaffold(
       appBar: CustomAppBarPayDebt(context: context),
       body: Stack(children: [
@@ -62,9 +71,15 @@ class ExerciseView extends StatelessWidget {
                   ),
                 ],
               ),
+              SizedBox(height: 10.h),
+              YoutubePlayer(
+                controller: _controller,
+                showVideoProgressIndicator: true,
+              ),
             ],
           ),
         ),
+/*
         Container(
           width: 100.w,
           height: 100.h,
@@ -92,7 +107,7 @@ class ExerciseView extends StatelessWidget {
               ),
             ],
           ),
-        )
+        )*/
       ]),
     );
   }
