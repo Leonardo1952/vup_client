@@ -3,8 +3,14 @@ import 'package:sizer/sizer.dart';
 import 'package:vup_client/presentation/views/exercise/exercise_view.dart';
 
 class ExerciseCard extends StatelessWidget {
+  final String imageUrl;
+  final String name;
+  final String frequency;
   const ExerciseCard({
     Key? key,
+    required this.imageUrl,
+    required this.name,
+    required this.frequency,
   }) : super(key: key);
 
   @override
@@ -19,7 +25,7 @@ class ExerciseCard extends StatelessWidget {
           child: Column(
             children: [
               Image.asset(
-                'assets/images/jpg/halter.jpg',
+                imageUrl,
                 height: 25.h,
                 width: 100.w,
                 fit: BoxFit.cover,
@@ -31,7 +37,7 @@ class ExerciseCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Rosca Biceps alternada',
+                      name,
                       style: TextStyle(
                           fontSize: 15.sp, fontWeight: FontWeight.bold),
                     ),
@@ -39,7 +45,7 @@ class ExerciseCard extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(bottom: 2.h),
                       child: Row(
-                        children: const [Text('Frequencia: '), Text('3x12')],
+                        children: [const Text('Frequencia: '), Text(frequency)],
                       ),
                     ),
                   ],

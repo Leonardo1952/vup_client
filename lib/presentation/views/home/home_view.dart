@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:vup_client/presentation/core/app_colors.dart';
 import 'package:vup_client/presentation/core/app_text_styles.dart';
+import 'package:vup_client/presentation/local_database.dart';
 import 'package:vup_client/presentation/views/exercise/exercise_view.dart';
 import 'package:vup_client/presentation/views/home/widgets/exercise_card.dart';
 import 'package:vup_client/presentation/views/pay_debt/pay_debt_view.dart';
@@ -29,10 +30,14 @@ class HomeView extends StatelessWidget {
             SizedBox(
               height: 100.h,
               child: ListView.builder(
-                itemCount: 5,
+                itemCount: LocalDatabase.exercises.length,
                 itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
-                    child: const ExerciseCard(),
+                    child: ExerciseCard(
+                      imageUrl: LocalDatabase.exercises[index].imageUrl,
+                      name: LocalDatabase.exercises[index].name,
+                      frequency: LocalDatabase.exercises[index].frequency,
+                    ),
                     onTap: () {
                       Navigator.push(
                         context,
