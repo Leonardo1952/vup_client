@@ -9,7 +9,7 @@ import 'package:vup_client/presentation/shared/strategies/pix_payment_strategy.d
 import 'package:vup_client/presentation/shared/value_objects/pix.dart';
 import 'package:vup_client/presentation/views/pay_debt/widgets/custom_appbar_pay_debt.dart';
 
-import 'widgets/form_payment_card.dart';
+//import 'widgets/form_payment_card.dart';
 
 class PayDebtView extends StatefulWidget {
   const PayDebtView({Key? key}) : super(key: key);
