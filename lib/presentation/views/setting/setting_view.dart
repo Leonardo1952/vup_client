@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:vup_client/presentation/core/app_colors.dart';
 import 'package:vup_client/presentation/shared/widgets/app_button_widget.dart';
-import 'package:vup_client/presentation/views/auth/widgets/text_button_widget.dart';
 
 class SettingView extends StatelessWidget {
   const SettingView({Key? key}) : super(key: key);

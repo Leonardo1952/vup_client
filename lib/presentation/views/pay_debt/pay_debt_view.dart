@@ -2,12 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:vup_client/presentation/core/app_colors.dart';
 import 'package:vup_client/presentation/core/app_text_styles.dart';
+import 'package:vup_client/presentation/shared/services/i_payment.dart';
+import 'package:vup_client/presentation/shared/services/payment_service.dart';
+import 'package:vup_client/presentation/shared/strategies/bank_slip_payment_strategy.dart';
+import 'package:vup_client/presentation/shared/strategies/pix_payment_strategy.dart';
+import 'package:vup_client/presentation/shared/value_objects/pix.dart';
 import 'package:vup_client/presentation/views/pay_debt/widgets/custom_appbar_pay_debt.dart';
 
 import 'widgets/form_payment_card.dart';
 
-class PayDebtView extends StatelessWidget {
+class PayDebtView extends StatefulWidget {
   const PayDebtView({Key? key}) : super(key: key);
+
+  @override
+  State<PayDebtView> createState() => _PayDebtViewState();
+}
+
+class _PayDebtViewState extends State<PayDebtView> {
+  late IPayment pixPayment;
+  late IPayment bankSlipPayment;
+  IPayment? selectedPayment;
+  late PaymentService paymentService;
+  late PIX pix;
+
+  @override
+  void initState() {
+    super.initState();
+
+    paymentService = PaymentService();
+    pixPayment = PIXPaymentStrategy();
+    bankSlipPayment = BankSlipPaymentStrategy();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,12 +87,38 @@ class PayDebtView extends StatelessWidget {
                         ),
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
-                          FormPaymentCard(name: 'PIX'),
-                          FormPaymentCard(name: 'BOLETO'),
+                        children: [
+                          const Text('Boleto'),
+                          Radio<IPayment>(
+                            value: bankSlipPayment,
+                            groupValue: selectedPayment,
+                            onChanged: (IPayment? iPayment) {
+                              setPayment(iPayment);
+                            },
+                          ),
                         ],
                       ),
+                      Row(
+                        children: [
+                          const Text('PIX'),
+                          Radio<IPayment>(
+                            value: pixPayment,
+                            groupValue: selectedPayment,
+                            onChanged: (IPayment? iPayment) {
+                              setPayment(iPayment);
+                            },
+                          ),
+                        ],
+                      ),
+
+                      /*
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: const [
+                            FormPaymentCard(name: 'PIX'),
+                            FormPaymentCard(name: 'BOLETO'),
+                          ])*/
+                      TextButton(onPressed: firePay, child: const Text("Pagar"))
                     ],
                   ),
                 ),
@@ -77,5 +128,16 @@ class PayDebtView extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void setPayment(IPayment? iPayment) {
+    setState(() {
+      selectedPayment = iPayment;
+      paymentService.paymentStrategy = iPayment;
+    });
+  }
+
+  Future<void> firePay() async {
+    await paymentService.pay();
   }
 }

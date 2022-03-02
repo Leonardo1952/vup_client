@@ -29,7 +29,7 @@ class PaymentsView extends StatelessWidget {
             const Divider(color: Colors.transparent),
             GestureDetector(
               child: const MonthlyPaymentCard(),
-              onDoubleTap: () => Navigator.pushReplacement(
+              onDoubleTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => const PayDebtView(),

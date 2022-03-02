@@ -30,7 +30,10 @@ class _MainPagesViewState extends State<MainPagesView> {
         controller: mainPagesViewModel.pagesViewController,
         children: [
           const HomeView(),
-          Container(color: Colors.orange),
+          Container(
+            color: Colors.black,
+          ),
+          //CommunityView(),
           const PaymentsView(),
           const SettingView(),
         ],
